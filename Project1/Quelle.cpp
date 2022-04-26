@@ -2,7 +2,6 @@
 #include <iostream>
 
 
-
 int main() {
 
 	int formelwahl = 0;
@@ -17,12 +16,8 @@ int main() {
 
 	double Kruhepuls = 0, Kmaxpuls = 0, Kfaktor = 0, Ktrain = 0; 	// Variablen fuer Karvonen-Formel
 
-
 		std::cout << "Trainingspuls berechnen nach Lagerstroem oder Karvonen\n";
 		std::cout << "--------------------------------------------------------\n\n";
-
-
-
 		std::cout << "Moechten Sie Ihren Trainingspuls nach der Lagerstroem-Formel (1) oder nach der Karvonen-Formel (2) berechnen? ";
 		std::cin >> formelwahl;
 
@@ -38,7 +33,6 @@ int main() {
 		else if (formelwahl == 1) { // Anfang der Lagerstroem-Berechnung
 
 			for (int i = 0; i >= 0; i++) {  // Lagerstroem-Schleife
-
 
 				std::cout << "\nBitte geben Sie Ihren Ruhepuls ein: ";
 				std::cin >> rp;
@@ -84,7 +78,6 @@ int main() {
 				else if (fk == 5) {
 					fk = 0.75;
 				}
-
 
 				std::cout << "Tippen Sie fuer reines Ausdauertraining (Gehen, Laufen, Schwimmen) die 1.\nFuer Kraftausdauer-Sportarten (Rudern oder Radfahren) hingegen bitte die 2: ";
 				std::cin >> aa;
@@ -132,7 +125,6 @@ int main() {
 				std::cout << "\n--------------------------------\n\n";
 
 				std::cout << "\n\nBitte druecken Sie die Eingabetaste, um die Berechnung zu wiederholen oder schliessen Sie das Konsolenfenster mit dem X-Knopf am oberen Bildschirmrand.\n\n";
-
 
 				std::cin.clear();
 				std::cin.ignore(std::cin.rdbuf()->in_avail());
@@ -186,24 +178,17 @@ int main() {
 				return EXIT_FAILURE;
 			}
 
-
 			std::cout << "\n--------------------------------\n\n";
 			std::cout << "\nMit diesen Zahlen wird gerechnet:\n\n";
 			std::cout << "Ruhepuls: " << Kruhepuls << "\n";
 			std::cout << "Maximale Herzfrequenz: " << Kmaxpuls << "\n";
 			std::cout << "Intensitaets-Faktor: " << Kfaktor << "\n\n";
-
 			std::cout << "Karvonen-Formel: Optimale Herzfrequenz = Ruhepuls + (Maximale Herzfrequenz - Ruhepuls) * Intensitaets-Faktor\n";
 			Ktrain = Kruhepuls + (Kmaxpuls - Kruhepuls) * Kfaktor;
 			std::cout << "Rechnung: " << Kruhepuls << " + (" << Kmaxpuls << " - " << Kruhepuls << ") * " << Kfaktor << " = " << Ktrain << "\n\n";
-			
-
 			std::cout << "Ihre optimale Trainings-Herzfrequenz nach der Karvonen-Formel betraegt: " << Ktrain << " Schlaege pro Minute\n\n";
 			std::cout << "--------------------------------\n\n";
-
-
 			std::cout << "\n\nBitte druecken Sie die Eingabetaste, um die Berechnung zu wiederholen oder schliessen Sie das Konsolenfenster mit dem X-Knopf am oberen Bildschirmrand.\n\n";
-
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cin.get();
