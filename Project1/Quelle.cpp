@@ -9,8 +9,6 @@ int main() {
 	double rp = 0, la = 0, fk = 0, tp = 0, aa = 0;
 	double kraftausdauer = static_cast<double>(3) / 4; // Faktor 3/4 fuer Kraftausdauersportarten
 	double ausdauer = static_cast<double>(2) / 3; // Faktor 2/3 fuer reine Ausdauersportarten
-	// double kraftausdauer = 0.75; // Faktor 3/4 fuer Kraftausdauersportarten
-	// double ausdauer = 0.666; // Faktor 2/3 fuer reine Ausdauersportarten
 	double ausdauerart = 0;
 	std::string ausdauername = "Leer";
 
