@@ -62,13 +62,10 @@ int main() {
 				else if (fk < 1 || fk >5) {
 					std::cout << "Die Fitnesskategorie " << fk << " existiert im Rahmen der Lagerstroem-Formel nicht. Bitte versuchen Sie eine Zahl zwischen 1 und 5.";
 					std::cerr << "Fehler bei der Eingabe\n";
-
-
-					/*
+					
 					std::cin.clear();
 					std::cin.ignore(std::cin.rdbuf()->in_avail());
 					std::cin.get();
-					*/
 
 					return EXIT_FAILURE;
 				}
