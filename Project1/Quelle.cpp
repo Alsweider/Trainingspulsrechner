@@ -122,7 +122,7 @@ int main() {
 				std::cout << "Ihre optimale Pulsfrequenz fuer das Langzeitausdauertraining bei " << ausdauername << " betraegt: \n" << tp << " Schlaege pro Minute\n\n";
 				std::cout << "\n--------------------------------\n\n";
 
-				std::cout << "\n\nBitte druecken Sie die Eingabetaste, um die Berechnung zu wiederholen oder schliessen Sie das Konsolenfenster mit dem X-Knopf am oberen Bildschirmrand.\n\n";
+				std::cout << "\n\nBitte druecken Sie die Eingabetaste, um die Berechnung zu wiederholen oder schliessen Sie das Konsolenfenster mit dem X-Knopf am oberen Fensterrand.\n\n";
 
 				std::cin.clear();
 				std::cin.ignore(std::cin.rdbuf()->in_avail());
@@ -186,7 +186,7 @@ int main() {
 			std::cout << "Rechnung: " << Kruhepuls << " + (" << Kmaxpuls << " - " << Kruhepuls << ") * " << Kfaktor << " = " << Ktrain << "\n\n";
 			std::cout << "Ihre optimale Trainings-Herzfrequenz nach der Karvonen-Formel betraegt: " << Ktrain << " Schlaege pro Minute\n\n";
 			std::cout << "--------------------------------\n\n";
-			std::cout << "\n\nBitte druecken Sie die Eingabetaste, um die Berechnung zu wiederholen oder schliessen Sie das Konsolenfenster mit dem X-Knopf am oberen Bildschirmrand.\n\n";
+			std::cout << "\n\nBitte druecken Sie die Eingabetaste, um die Berechnung zu wiederholen oder schliessen Sie das Konsolenfenster mit dem X-Knopf am oberen Fensterrand.\n\n";
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cin.get();
