@@ -4,14 +4,12 @@
 
 int main() {
 
-	int formelwahl = 0;
-	// Variablen fuer Lagerstroem-Formel:
-	double rp = 0, la = 0, fk = 0, tp = 0, aa = 0;
+	int formelwahl = 0; // Entscheidet zwischen Lagerstroem und Karvonen
+	double rp = 0, la = 0, fk = 0, tp = 0, aa = 0; 	// Variablen fuer Lagerstroem-Formel
 	double kraftausdauer = static_cast<double>(3) / 4; // Faktor 3/4 fuer Kraftausdauersportarten
 	double ausdauer = static_cast<double>(2) / 3; // Faktor 2/3 fuer reine Ausdauersportarten
-	double ausdauerart = 0;
-	std::string ausdauername = "Leer";
-
+	double ausdauerart = 0; // Nimmt den Wert von kraftausdauer oder ausdauer an, zur Durchfuehrung der Lagerstroem-Berechnung
+	std::string ausdauername = "Leer"; // Wird zur Benennung der Ausdauerkategorie im Lagerstroem-Ergebnis verwendet
 	double Kruhepuls = 0, Kmaxpuls = 0, Kfaktor = 0, Ktrain = 0; 	// Variablen fuer Karvonen-Formel
 
 		std::cout << "Trainingspuls berechnen nach Lagerstroem oder Karvonen\n";
