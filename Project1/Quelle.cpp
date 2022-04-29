@@ -16,8 +16,7 @@ int main() {
 		std::cout << "Trainingspuls berechnen nach Lagerstroem oder Karvonen\n";
 		std::cout << "--------------------------------------------------------\n\n";
 
-		while (programmschleife == 1) {
-		
+		while (programmschleife == 1) { // Wiederholen des Programms, solange programmschleife den Wert 1 hat
 
 		std::cout << "Moechten Sie Ihren Trainingspuls nach der Lagerstroem-Formel (1) oder nach der Karvonen-Formel (2) berechnen? ";
 		std::cin >> formelwahl;
@@ -119,10 +118,8 @@ int main() {
 				tp = rp + (220 - ausdauerart * la - rp) * fk; // Berechnung nach Dieter Lagerstroem 
 				std::cout << "Rechnung: " << rp << " + (220 - " << ausdauerart << " * " << la << " - " << rp << ") * " << fk << " = " << tp << "\n\n";
 
-
 				std::cout << "Ihre optimale Pulsfrequenz fuer das Langzeitausdauertraining bei " << ausdauername << " betraegt: \n" << tp << " Schlaege pro Minute\n\n";
 				std::cout << "\n--------------------------------\n\n";
-
 
 				std::cout << "Moechten Sie eine neue Berechnung durchfuehren? [1] Ja, [0] Nein: ";
 				std::cin >> programmschleife;
@@ -187,8 +184,6 @@ int main() {
 			std::cout << "Ihre optimale Trainings-Herzfrequenz nach der Karvonen-Formel betraegt: " << Ktrain << " Schlaege pro Minute\n\n";
 			std::cout << "--------------------------------\n\n";
 
-			
-			
 			std::cout << "Moechten Sie eine neue Berechnung durchfuehren? [1] Ja, [0] Nein: ";
 			std::cin >> programmschleife;
 			std::cout << '\n';
