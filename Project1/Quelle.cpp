@@ -4,6 +4,7 @@
 
 int main() {
 
+	int programmschleife = 1; // Programmablauf wiederholen oder beenden
 	int formelwahl = 0; // Entscheidet zwischen Lagerstroem und Karvonen
 	double rp = 0, la = 0, fk = 0, tp = 0, aa = 0; 	// Variablen fuer Lagerstroem-Formel
 	double kraftausdauer = static_cast<double>(3) / 4; // Faktor 3/4 fuer Kraftausdauersportarten
@@ -14,6 +15,10 @@ int main() {
 
 		std::cout << "Trainingspuls berechnen nach Lagerstroem oder Karvonen\n";
 		std::cout << "--------------------------------------------------------\n\n";
+
+		while (programmschleife == 1) {
+		
+
 		std::cout << "Moechten Sie Ihren Trainingspuls nach der Lagerstroem-Formel (1) oder nach der Karvonen-Formel (2) berechnen? ";
 		std::cin >> formelwahl;
 
@@ -22,13 +27,11 @@ int main() {
 			return EXIT_FAILURE;
 		}
 		else if (formelwahl < 1 || formelwahl >2) {
-			std::cout << "Bitte tippen Sie 1 für die Lagerstroem-Formel oder 2 für die Karvonen-Formel und bestaetigen Sie Ihre Wahl mit der Eingabetaste.\n";
+			std::cout << "Bitte tippen Sie 1 fuer die Lagerstroem-Formel oder 2 fuer die Karvonen-Formel und bestaetigen Sie Ihre Wahl mit der Eingabetaste.\n";
 			std::cerr << "Fehler bei der Eingabe\n";
 
 		}
 		else if (formelwahl == 1) { // Anfang der Lagerstroem-Berechnung
-
-			for (int i = 0; i >= 0; i++) {  // Lagerstroem-Schleife
 
 				std::cout << "\nBitte geben Sie Ihren Ruhepuls ein: ";
 				std::cin >> rp;
@@ -120,20 +123,19 @@ int main() {
 				std::cout << "Ihre optimale Pulsfrequenz fuer das Langzeitausdauertraining bei " << ausdauername << " betraegt: \n" << tp << " Schlaege pro Minute\n\n";
 				std::cout << "\n--------------------------------\n\n";
 
-				std::cout << "\n\nBitte druecken Sie die Eingabetaste, um die Berechnung zu wiederholen oder schliessen Sie das Konsolenfenster mit dem X-Knopf am oberen Fensterrand.\n\n";
 
-				std::cin.clear();
-				std::cin.ignore(std::cin.rdbuf()->in_avail());
-				std::cin.get();
+				std::cout << "Moechten Sie eine neue Berechnung durchfuehren? [1] Ja, [0] Nein: ";
+				std::cin >> programmschleife;
+				std::cout << '\n';
+
+				if (std::cin.fail()) {
+					std::cerr << "Fehler bei der Eingabe\n";
+					return EXIT_FAILURE;
+				}
 
 			}
-
-		}
-		else if (formelwahl == 2) {
-
-		}// Ende Lagerstroem-Berechnung, Anfang Karvonen-Berechnung
-
-		for (int i = 0; i >= 0; i++) { // Karvonen-Schleife
+		
+		else { // Ende Lagerstroem-Berechnung, Anfang Karvonen-Berechnung
 
 			std::cout << "\nBitte geben Sie Ihren Ruhepuls ein: ";
 			std::cin >> Kruhepuls;
@@ -184,11 +186,21 @@ int main() {
 			std::cout << "Rechnung: " << Kruhepuls << " + (" << Kmaxpuls << " - " << Kruhepuls << ") * " << Kfaktor << " = " << Ktrain << "\n\n";
 			std::cout << "Ihre optimale Trainings-Herzfrequenz nach der Karvonen-Formel betraegt: " << Ktrain << " Schlaege pro Minute\n\n";
 			std::cout << "--------------------------------\n\n";
-			std::cout << "\n\nBitte druecken Sie die Eingabetaste, um die Berechnung zu wiederholen oder schliessen Sie das Konsolenfenster mit dem X-Knopf am oberen Fensterrand.\n\n";
-			std::cin.clear();
-			std::cin.ignore(std::cin.rdbuf()->in_avail());
-			std::cin.get();
-		}
+
+			
+			
+			std::cout << "Moechten Sie eine neue Berechnung durchfuehren? [1] Ja, [0] Nein: ";
+			std::cin >> programmschleife;
+			std::cout << '\n';
+
+			if (std::cin.fail()) {
+				std::cerr << "Fehler bei der Eingabe\n";
+				return EXIT_FAILURE;
+			}
+}
+
+		
+}  // Programmschleife Ende
 	
 	return EXIT_SUCCESS;
 }
