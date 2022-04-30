@@ -34,8 +34,8 @@ int main() {
 			return EXIT_FAILURE;
 		}
 		else if (formelwahl < 1 || formelwahl >4) {
-			std::cout << "Bitte tippen Sie 1 fuer die Lagerstroem-Formel oder 2 fuer die Karvonen-Formel und bestaetigen Sie Ihre Wahl mit der Eingabetaste.\n";
-			std::cerr << "Fehler bei der Eingabe\n";
+			std::cout << "Bitte geben Sie eine Zahl von 1 bis 4 ein.\n";
+			std::cerr << "Fehler bei der Eingabe\n\n";
 
 		}
 		else if (formelwahl == 1) { // Anfang der Lagerstroem-Berechnung
@@ -242,11 +242,12 @@ int main() {
 			if (std::cin.fail()) {
 				std::cerr << "Fehler bei der Eingabe\n";
 				return EXIT_FAILURE;
-			}
-
-			if (geschlecht < 0 || geschlecht > 1){
+			} 
+			else if (geschlecht < 0 || geschlecht > 1){
 				std::cout << "Ungueltige Eingabe. Bitte waehlen Sie die 1 fuer maennlich oder die 0 fuer weiblich.\n";
 				std::cerr << "Fehler bei der Eingabe\n";
+				return EXIT_FAILURE;
+
 			}
 			else if (geschlecht == 1) {
 				geschlecht = 0.9; 
