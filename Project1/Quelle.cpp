@@ -12,20 +12,28 @@ int main() {
 	double ausdauerart = 0; // Nimmt den Wert von kraftausdauer oder ausdauer an, zur Durchfuehrung der Lagerstroem-Berechnung
 	std::string ausdauername = "Leer"; // Wird zur Benennung der Ausdauerkategorie im Lagerstroem-Ergebnis verwendet
 	double Kruhepuls = 0, Kmaxpuls = 0, Kfaktor = 0, Ktrain = 0; 	// Variablen fuer Karvonen-Formel
+	double maximalpuls = 0, geschlecht = 0, maximalpulsGeschlecht = 0; // Fuer die Berechnung der Maximalpuls-Formeln
 
-		std::cout << "Trainingspuls berechnen nach Lagerstroem oder Karvonen\n";
-		std::cout << "--------------------------------------------------------\n\n";
+		std::cout << "Trainingspulsrechner\n";
+		std::cout << "--------------------\n\n";
 
 		while (programmschleife == 1) { // Wiederholen des Programms, solange programmschleife den Wert 1 hat
 
-		std::cout << "Moechten Sie Ihren Trainingspuls nach der Lagerstroem-Formel (1) oder nach der Karvonen-Formel (2) berechnen? ";
+			std::cout << "Bitte treffen Sie Ihre Wahl:\n\n";
+			std::cout << "Trainingspuls nach der Lagerstroem-Formel berechnen [1]\n";
+			std::cout << "Trainingspuls nach der Karvonen-Formel berechnen [2]\n";
+			std::cout << "Maximalpuls nach Hirofumi Tanaka et al berechnen [3]\n";
+			std::cout << "Maximalpuls fuer trainierte Sportler nach Winfried Spanaus berechnen [4]\n\n";
+			std::cout << "Ihre Eingabe: ";
+			
+			//Moechten Sie Ihren Trainingspuls nach der Lagerstroem - Formel(1) oder nach der Karvonen - Formel(2) berechnen ? ";
 		std::cin >> formelwahl;
 
 		if (std::cin.fail()) {
 			std::cerr << "Fehler bei der Eingabe\n";
 			return EXIT_FAILURE;
 		}
-		else if (formelwahl < 1 || formelwahl >2) {
+		else if (formelwahl < 1 || formelwahl >4) {
 			std::cout << "Bitte tippen Sie 1 fuer die Lagerstroem-Formel oder 2 fuer die Karvonen-Formel und bestaetigen Sie Ihre Wahl mit der Eingabetaste.\n";
 			std::cerr << "Fehler bei der Eingabe\n";
 
@@ -77,7 +85,7 @@ int main() {
 					fk = 0.75;
 				}
 
-				std::cout << "Tippen Sie fuer reines Ausdauertraining (Gehen, Laufen, Schwimmen) die 1.\nFuer Kraftausdauer-Sportarten (Rudern oder Radfahren) hingegen bitte die 2: ";
+				std::cout << "Tippen Sie fuer reines Ausdauertraining (Gehen, Laufen, Schwimmen) die 1. Fuer Kraftausdauer-Sportarten (Rudern oder Radfahren) hingegen bitte die 2: ";
 				std::cin >> aa;
 
 				if (std::cin.fail()) {
@@ -132,7 +140,7 @@ int main() {
 
 			}
 		
-		else { // Ende Lagerstroem-Berechnung, Anfang Karvonen-Berechnung
+		else if (formelwahl == 2) { // Ende Lagerstroem-Berechnung, Anfang Karvonen-Berechnung
 
 			std::cout << "\nBitte geben Sie Ihren Ruhepuls ein: ";
 			std::cin >> Kruhepuls;
@@ -193,7 +201,84 @@ int main() {
 				return EXIT_FAILURE;
 			}
 }
+		else if (formelwahl == 3) {
+		std::cout << "\nBitte geben Sie Ihr Lebensalter in Jahren ein: ";
+		std::cin >> la;
 
+		if (std::cin.fail()) {
+			std::cerr << "Fehler bei der Eingabe\n";
+			return EXIT_FAILURE;
+		}
+
+		std::cout << "\nTanaka-Formel: Maximalpuls = 208 - 0,7 * Lebensalter\n";
+		maximalpuls = 208 - (0.7 * la);
+		std::cout << "Rechnung: 208 - 0,7 * " << la << " = " << maximalpuls << "\n\n";
+		std::cout << "Ihr theoretischer Maximalpuls nach der Formel von Hirofumi Tanaka betraegt: " << maximalpuls << " Schlaege pro Minute\n";
+		
+		std::cout << "\nMoechten Sie eine neue Berechnung durchfuehren? [1] Ja, [0] Nein: ";
+		std::cin >> programmschleife;
+		std::cout << '\n';
+
+		if (std::cin.fail()) {
+			std::cerr << "Fehler bei der Eingabe\n";
+			return EXIT_FAILURE;
+		}
+
+		}
+
+
+		else if (formelwahl == 4) {
+			std::cout << "\nBitte geben Sie Ihr Lebensalter in Jahren ein: ";
+			std::cin >> la;
+
+			if (std::cin.fail()) {
+				std::cerr << "Fehler bei der Eingabe\n";
+				return EXIT_FAILURE;
+			}
+
+			std::cout << "Bitte geben Sie nun Ihr Geschlecht ein. maennlich [1] / weiblich [0]: ";
+			std::cin >> geschlecht;
+
+			if (std::cin.fail()) {
+				std::cerr << "Fehler bei der Eingabe\n";
+				return EXIT_FAILURE;
+			}
+
+			if (geschlecht < 0 || geschlecht > 1){
+				std::cout << "Ungueltige Eingabe. Bitte waehlen Sie die 1 fuer maennlich oder die 0 fuer weiblich.\n";
+				std::cerr << "Fehler bei der Eingabe\n";
+			}
+			else if (geschlecht == 1) {
+				geschlecht = 0.9; 
+				maximalpulsGeschlecht = 223;
+				std::cout << "\nSpanaus-Formel (Maenner): Maximalpuls = 223 - 0,9 * Lebensalter\n";
+
+			}
+			else if (geschlecht == 0) {
+				geschlecht = 1.0;
+				maximalpulsGeschlecht = 226;
+				std::cout << "\nSpanaus-Formel (Frauen): Maximalpuls = 226 - 1,0 * Lebensalter\n";
+
+		}
+
+			std::cout << "Rechnung: Maximalpuls = " << maximalpulsGeschlecht << " - " << geschlecht << " * " << la << "\n";
+			maximalpuls = maximalpulsGeschlecht - (geschlecht * la);
+
+			std::cout << "Ihr theoretischer Maximalpuls nach der Formel von Winfried Spanaus fuer trainierte Sportler betraegt: " << maximalpuls << " Schlaege pro Minute\n";
+
+
+
+		
+		std::cout << "\nMoechten Sie eine neue Berechnung durchfuehren? [1] Ja, [0] Nein: ";
+		std::cin >> programmschleife;
+		std::cout << '\n';
+
+		if (std::cin.fail()) {
+			std::cerr << "Fehler bei der Eingabe\n";
+			return EXIT_FAILURE;
+		
+		}
+}
 		
 }  // Programmschleife Ende
 	
