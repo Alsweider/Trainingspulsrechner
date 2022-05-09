@@ -5,3 +5,5 @@ Konsolenprogramm zur Berechnung der optimalen Trainings-Herzfrequenz nach Lagers
 Ebenso sind die Formeln zur Berechnung des Maximalpulses nur als Anhaltspunkte zu verstehen. Sie sind kein Ersatz für eine tatsächliche Messung zur Ermittlung der maximalen Herzfrequenz, welcher aufgrund der hohen Belastung eine ärztliche Tauglichkeitsuntersuchung vorausgehen sollte.
 
 Herunterladen: https://github.com/Alsweider/Trainingspulsrechner/releases/latest
+
+![Trainingspulsrechnervorschau](https://user-images.githubusercontent.com/30653982/167405163-d89a3775-fd5e-43a9-9c79-b1dc48ee1815.jpg)
