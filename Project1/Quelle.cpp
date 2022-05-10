@@ -1,11 +1,14 @@
 ﻿#include <cstdlib>
 #include <iostream>
 #include <Windows.h>
+// #include <locale.h> // Für deutsche Lokalisierung, aktuell nicht benötigt 
  
 
 int main() {
 
-	SetConsoleOutputCP(CP_UTF8); // Konsolenausgabe auf UTF8 umstellen zur Darstellung von Umlauten
+	// std::locale::global(std::locale("de_DE.UTF-8")); // Für deutsche Lokalisierung, aktuell nicht benötigt 
+	SetConsoleOutputCP(CP_UTF8); // Konsolenausgabe auf UTF-8 umstellen zur Darstellung von Umlauten
+
 	int programmschleife = 1; // Programmablauf wiederholen oder beenden
 	int formelwahl = 0; // Entscheidet zwischen Lagerstrøm und Karvonen
 	double rp = 0, la = 0, fk = 0, tp = 0, aa = 0; 	// Variablen für Lagerstrøm-Formel
@@ -28,19 +31,21 @@ int main() {
 			std::cout << u8"Maximalpuls für trainierte Sportler nach Winfried Spanaus berechnen [4]\n\n";
 			std::cout << u8"Ihre Eingabe: ";
 			
-			//Möchten Sie Ihren Trainingspuls nach der Lagerstrøm - Formel(1) oder nach der Karvonen - Formel(2) berechnen ? ";
 		std::cin >> formelwahl;
 
 		if (std::cin.fail()) {
 			std::cerr << u8"Fehler bei der Eingabe\n";
 			return EXIT_FAILURE;
 		}
-		else if (formelwahl < 1 || formelwahl >4) {
+		else if (formelwahl < 1 || formelwahl > 4) {
 			std::cout << u8"Bitte geben Sie eine Zahl von 1 bis 4 ein.\n";
 			std::cerr << u8"Fehler bei der Eingabe\n\n";
 
 		}
-		else if (formelwahl == 1) { // Anfang der Lagerstrøm-Berechnung
+
+		// Anfang der Lagerstrøm-Berechnung:
+
+		else if (formelwahl == 1) { 
 
 				std::cout << u8"\nBitte geben Sie Ihren Ruhepuls ein: ";
 				std::cin >> rp;
@@ -108,7 +113,7 @@ int main() {
 					ausdauername = "Kraftausdauersportarten";
 				}
 				else {
-					std::cout << u8"Bitte geben Sie die richtige Ausdauerkategorie an (1 Ausdauer oder 2 Kraftausdauer).\n";
+					std::cout << u8"Bitte geben Sie die richtige Ausdauerkategorie an ([1] Ausdauer oder [2] Kraftausdauer).\n";
 					std::cerr << u8"Fehler bei der Eingabe\n";
 
 					std::cin.clear();
@@ -157,7 +162,7 @@ int main() {
 				return EXIT_FAILURE;
 			}
 
-			std::cout << u8"Bitte geben Sie Ihre maximale Herzfrequenz ein (Ergometermessung oder nach Faustregel: 220 - Lebensalter in Jahren): ";
+			std::cout << u8"Bitte geben Sie Ihre maximale Herzfrequenz ein: ";
 			std::cin >> Kmaxpuls;
 			if (std::cin.fail()) {
 				std::cerr << u8"Fehler bei der Eingabe\n";
